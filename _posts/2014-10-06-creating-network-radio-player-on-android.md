@@ -135,7 +135,7 @@ if (!contentType.equals("audio/mpeg")){
 }
 {% endhighlight %}
 
-{% highlight java %}
+{% highlight php %}
 // Create Buffered input stream to optimise stream reads. BufferedInputStream attempts to read
 // as many data as possible in source stream even if you're reading single byte.
 mInputStream = new BufferedInputStream(mConnection.getInputStream(), IN_BUFFER_SIZE * 10);
