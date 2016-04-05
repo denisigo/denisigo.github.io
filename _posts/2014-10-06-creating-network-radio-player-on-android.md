@@ -44,9 +44,9 @@ Quite simple, isn't it? Let's code!
 
 Beautiful library [mpg123](http://www.mpg123.de/) will help us to decode MP3 data coming from station stream to PCM data suitable for AudioTrack. Since it's written in C, we have to perform some special operations to make it work on Android. You can find already adapted version in the [repo](https://github.com/denisigo/NetRadioPlayer/tree/v1/app/jni/libmpg123). At first, let's download the library [here](http://www.mpg123.de/download.shtml) and unpack it somewhere. Next, we have to configure it, so go into that folder and run:
 
-{% highlight shell %}
+``` shell
 ./configure
-{% endhighlight %}
+```
 
 You don't need to run _make_ and _make install_ since compiling will be performed by the NDK. Since mpg123 library is not just a decoder, we have to extract only things we really need. So go to the _[mpg123]/src_ folder and locate _libmpg123_ folder - it's decoder itself and that's what we only need. There are some shared files libmpg123 is using - let's just copy them into _libmpg123_ folder to optimize structure. These files are (assuming we're in the _[mpg123]/src_ folder):
 
@@ -57,18 +57,18 @@ You don't need to run _make_ and _make install_ since compiling will be performe
 Next, in order to successfull compiling, we have to change some lines. 
 
 _compat.c_:
-{% highlight shell %}
+``` c
 #include "compat/compat_impl.h"
 to
 #include "compat_impl.h"
-{% endhighlight %}
+```
 
 _mpg123.h_:
-{% highlight shell %}
+``` c
 #include <fmt123.h>
 to
 #include "fmt123.h"
-{% endhighlight %}
+```
 
 Done, now let's copy libmpg123 folder to our project's JNI folder: _NetRadioPlayer/app/jni/libmpg123/libmpg123_. Now it's time to create [Android.mk](https://github.com/denisigo/NetRadioPlayer/blob/v1/app/jni/libmpg123/Android.mk) file for libmpg123, which is needed for NDK to build our lib. I won't dive into it, just say that our lib will be built as a static one to be linked from our JNI decoder lib. libpmg123 is ready to be built, but let's create another library, which methods we will invoke from Java level through JNI and which will invoke libmpg123 methods in turn - _libdecoder-jni_.
 
@@ -84,7 +84,7 @@ Let's briefly look at the code.
 
 **__initNative()_**
 
-{% highlight shell %}
+``` shell
 // Init mpg123 decoder
 mpg123_init();
 // Get mpg123 decoder handle. If hnd is not NULL, everything is OK
@@ -92,24 +92,24 @@ mpg123_handle* hnd = mpg123_new(NULL, &ret);
 // Set mpg123 to feed mode since we're providing 
 // data ourseves and don't want mpg123 to read it for us
 ret = mpg123_open_feed(hnd);
-{% endhighlight %}
+```
 
-{% highlight shell %}
+``` shell
 // Get callback method from Java Decoder class to invoke it 
 // when mpg123 decoder faces a new format in the stream
 jclass thisClass = (*env)->GetObjectClass(env, thiz);
 method_onNewFormatCallback = (*env)->GetMethodID(env, thisClass, 
     "onNewFormatCallback", "(III)V");
-{% endhighlight %}
+```
 
 **__decodeNative()_**
 
-{% highlight shell %}
+``` shell
 size_t bytes_decoded;
 // Main method to decode provided data. It returns status of operation 
 // and bytes actually decoded in bytes_decoded if any
 ret = mpg123_decode(hnd, in_buf, size, out_buf, max_size, &bytes_decoded);
-{% endhighlight %}
+```
 
 # Create Java Decoder class
 
@@ -119,29 +119,29 @@ As were already mentioned above, Java Decoder acts as a proxy between libdecoder
 
 This class is serving as main component which reads data from stream, decodes it, and writes it to the AudioTrack. There is also no magic, but let's notice some pieces of code:
 
-{% highlight java %}
+``` java
 // At first try to establish a HTTPUrlConnection to the host
 mConnection = (HttpURLConnection) mURL.openConnection();
 responseCode = mConnection.getResponseCode();
 responseMessage = mConnection.getResponseMessage();
-{% endhighlight %}
+```
 
-{% highlight java %}
+``` java
 // Currently we support only audio/mpeg format
 String contentType = mConnection.getContentType();
 if (!contentType.equals("audio/mpeg")){
     onError("Unsupported content type: " + contentType);
     return;
 }
-{% endhighlight %}
+```
 
-{% highlight php %}
+``` java
 // Create Buffered input stream to optimise stream reads. BufferedInputStream attempts to read
 // as many data as possible in source stream even if you're reading single byte.
 mInputStream = new BufferedInputStream(mConnection.getInputStream(), IN_BUFFER_SIZE * 10);
-{% endhighlight %}
+```
 
-{% highlight java %}
+``` java
 while (!mIsInterrupted){
     // Read data from mInputStream to inBuffer
     bytesRead = mInputStream.read(inBuffer, 0, IN_BUFFER_SIZE);
@@ -180,7 +180,7 @@ while (!mIsInterrupted){
         }
     }
 }
-{% endhighlight %}
+```
 
 Please go to [GitHub](https://github.com/denisigo/NetRadioPlayer/blob/v1/app/src/main/java/com/denisigo/netradioplayer/StreamPlayer.java) for the full source code. Please note, that in this version of app, we don't use any prebuffering mechanism so if your internet connection is not good enough, you might face interruptions in playback. That's all for this time. Stay tuned!
 
