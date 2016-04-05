@@ -3,7 +3,7 @@ layout: page
 title: About
 ---
 
-Hi, I'm a software developer. In the course of my career I have worked in various fields of software development and have got a large and diverse experience. Ultimately I’ve got a genuine passion for mobile development and especially [Android](http://www.denisigo.com/category/android/), and since that I’m doing my best to improve my skills and knowledge of the platform. Please view my [CV](https://docs.google.com/document/d/1HGyLRLbBdKF8YwxZvrX9IWAgr8CCS-2WFMpXFOSIRyg/edit?usp=sharing).
+Hi, I'm a software developer. In the course of my career I have worked in various fields of software development and have got a large and diverse experience. Ultimately I’ve got a genuine passion for mobile development and especially [Android](http://www.denisigo.com/category/android/), and since that I’m doing my best to improve my skills and knowledge of the platform.
 
 # Experience
 
@@ -39,7 +39,7 @@ Hi, I'm a software developer. In the course of my career I have worked in variou
 
 # Links
 
-*   [LinkedId](https://www.linkedin.com/in/denis-sigov-43202b32)
+*   [LinkedIn](https://www.linkedin.com/in/denis-sigov-43202b32)
 *   [Stackoverflow](http://stackoverflow.com/users/2201815/denisigo)
 *   [Github](https://github.com/denisigo)
 *   [Google Play](https://play.google.com/store/apps/developer?id=Denisigo)
