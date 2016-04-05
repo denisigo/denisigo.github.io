@@ -164,7 +164,7 @@ while (!mIsInterrupted){
         onError("Error while decoding the stream: " + bytesDecoded);
         return;
     }
-    // Elsewhere we have decoded some real audio data, write it to audio track
+    // Otherwise we have decoded some real audio data, write it to audio track
     else {
         // If StreamPlayer just started we need to init AudioTrack.
         // We can't create it before since we have
