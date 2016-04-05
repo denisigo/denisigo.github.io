@@ -138,17 +138,20 @@ if (!contentType.equals("audio/mpeg")){
 ```
 
 ``` java
-// Create Buffered input stream to optimise stream reads. BufferedInputStream attempts to read
-// as many data as possible in source stream even if you're reading single byte.
-mInputStream = new BufferedInputStream(mConnection.getInputStream(), IN_BUFFER_SIZE * 10);
+// Create Buffered input stream to optimise stream reads. 
+// BufferedInputStream attempts to read as many data as possible 
+// in source stream even if you're reading single byte.
+mInputStream = new BufferedInputStream(mConnection.getInputStream(), 
+    IN_BUFFER_SIZE * 10);
 ```
 
 ``` java
 while (!mIsInterrupted){
     // Read data from mInputStream to inBuffer
     bytesRead = mInputStream.read(inBuffer, 0, IN_BUFFER_SIZE);
-    // Although Java docs say that number provided by available() method is not accurate, let's just use it for    
-    // estimate amount of data available for reading
+    // Although Java docs say that number provided by available() method 
+    // is not accurate, let's just use it for estimate amount of data 
+    // available for reading
     bytesCached = mInputStream.available();
 
     // We can get less bytes than we actually want, handle all the cases
