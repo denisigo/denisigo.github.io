@@ -11,7 +11,7 @@ Today I'm gonna show you how to install UWSGI, Python and Nginx on Google Comput
 
 # Preparation
 
-1.  Download Google Cloud SDK from
+1.  Download Google Cloud SDK [here](https://cloud.google.com/sdk/downloads)
 2.  Create a new project from Google Developers Console - [https://console.developers.google.com](https://console.developers.google.com)
 3.  Enable billing for the new project to be able to create Compute Engine instances (just go to the project and click on Compute Engine menu item and you will be prompted to enable billing )
 4.  Grant access to your account to the Cloud SDK by logging in. Open a terminal and type in: `$ gcloud auth login` Special confirmation page will be opened in your browser, don't miss it. Confirm the access and return to the terminal. There you will be prompted to enter a project ID you will work with - enter the ID of the project you created before.
@@ -116,7 +116,7 @@ Create Nginx site config file ([see UWSGI docs here](http://uwsgi-docs.readthedo
 $ sudo nano /etc/nginx/sites-available/test
 {% endhighlight %}
 
-{% highlight yaml %}
+{% highlight %}
 server {
     listen 80 default_server;
     location /test {
