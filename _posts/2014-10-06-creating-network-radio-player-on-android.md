@@ -57,14 +57,14 @@ You don't need to run _make_ and _make install_ since compiling will be performe
 Next, in order to successfull compiling, we have to change some lines. 
 
 _compat.c_:
-{% highlight c %}
+{% highlight shell %}
 #include "compat/compat_impl.h"
 to
 #include "compat_impl.h"
 {% endhighlight %}
 
 _mpg123.h_:
-{% highlight c %}
+{% highlight shell %}
 #include <fmt123.h>
 to
 #include "fmt123.h"
@@ -84,7 +84,7 @@ Let's briefly look at the code.
 
 **__initNative()_**
 
-{% highlight c %}
+{% highlight shell %}
 // Init mpg123 decoder
 mpg123_init();
 // Get mpg123 decoder handle. If hnd is not NULL, everything is OK
@@ -94,7 +94,7 @@ mpg123_handle* hnd = mpg123_new(NULL, &ret);
 ret = mpg123_open_feed(hnd);
 {% endhighlight %}
 
-{% highlight c %}
+{% highlight shell %}
 // Get callback method from Java Decoder class to invoke it 
 // when mpg123 decoder faces a new format in the stream
 jclass thisClass = (*env)->GetObjectClass(env, thiz);
@@ -104,7 +104,7 @@ method_onNewFormatCallback = (*env)->GetMethodID(env, thisClass,
 
 **__decodeNative()_**
 
-{% highlight c %}
+{% highlight shell %}
 size_t bytes_decoded;
 // Main method to decode provided data. It returns status of operation 
 // and bytes actually decoded in bytes_decoded if any
