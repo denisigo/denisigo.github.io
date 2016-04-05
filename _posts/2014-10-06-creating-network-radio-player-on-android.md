@@ -3,7 +3,7 @@ layout: post
 title: Creating Network Radio Player on Android
 category: Android
 ---
-Hi, today I'm gonna show you how to create a simple Android network radio client which you can use to listen to your favorite station - just type in one's URL! For the sake of simplicity, I'll try to divide this topic into several articles starting from the simplest version - v1\. This version will only support plain stream (Shoutcast, Icecast) of the "audio/mpeg" type and will have minimal sufficient amount of code. I'll try to evolve this app during the time and write about it here. As always, check out the code on [GitHub](https://github.com/denisigo/NetRadioPlayer/tree/v1). 
+Hi, today I'm gonna show you how to create a simple Android network radio client which you can use to listen to your favorite station - just type in one's URL! For the sake of simplicity, I'll try to divide this topic into several articles starting from the simplest version - v1. This version will only support plain stream (Shoutcast, Icecast) of the "audio/mpeg" type and will have minimal sufficient amount of code. I'll try to evolve this app during the time and write about it here. As always, check out the code on [GitHub](https://github.com/denisigo/NetRadioPlayer/tree/v1). 
 
 In this article you'll learn how to use HTTPUrlConnection for connection to radio host, InputStream to read stream data, native [mpg123 decoder](http://www.mpg123.de/) to decode MPEG data to PCM, JNI lib to access native decoder from Java, and AudioTrack to play decoded PCM data.
 
@@ -54,8 +54,9 @@ You don't need to run _make_ and _make install_ since compiling will be performe
 *   compat/compat.h
 *   compat/compat_impl.h
 
-Next, in order to successfull compiling, we have to change some lines. _compat.c_:
+Next, in order to successfull compiling, we have to change some lines. 
 
+_compat.c_:
 {% highlight c %}
 #include "compat/compat_impl.h"
 to
@@ -63,7 +64,6 @@ to
 {% endhighlight %}
 
 _mpg123.h_:
-
 {% highlight c %}
 #include <fmt123.h>
 to
@@ -80,7 +80,9 @@ Well, our JNI decoder library will consist of only one C file - [libdecoder-jni.
 *   _Java_com_denisigo_netradioplayer_Decoder_closeNative(jint handle)_ - used to close both JNI decoder library and mpg123 decoder library and free resources. It uses mpg123's decoder handle to close.
 *   _Java_com_denisigo_netradioplayer_Decoder_decodeNative(jint handle, jbyteArray in_buffer, jint size, jbyteArray out_buffer, jint max_size)_ - main method used for decoding _size_ bytes of encoded data from _in_buffer_ and place _max_size_ of decoded data to _out_buffer_.
 
-Let's briefly look at the code. **__initNative()_**
+Let's briefly look at the code. 
+
+**__initNative()_**
 
 {% highlight c %}
 // Init mpg123 decoder
