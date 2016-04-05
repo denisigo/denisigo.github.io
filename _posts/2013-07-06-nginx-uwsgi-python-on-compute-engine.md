@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Installing Nginx, UWSGI and Python on Google Compute Engine
+category: Google Cloud Platform
+tags: [Google Compute Engine]
 ---
 
 Today I'm gonna show you how to install UWSGI, Python and Nginx on Google Compute Engine instance.
