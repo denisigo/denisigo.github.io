@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to reduce Google App Engine app costs
+category: Google Cloud Platform
 ---
 Here I'm collecting recipes of how to reduce costs running application on Google App Engine [POST IS BEING UPDATED from time to time].
 
