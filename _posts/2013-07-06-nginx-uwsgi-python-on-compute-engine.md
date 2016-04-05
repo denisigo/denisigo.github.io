@@ -116,7 +116,7 @@ Create Nginx site config file ([see UWSGI docs here](http://uwsgi-docs.readthedo
 $ sudo nano /etc/nginx/sites-available/test
 {% endhighlight %}
 
-{% highlight %}
+{% highlight nginx %}
 server {
     listen 80 default_server;
     location /test {
