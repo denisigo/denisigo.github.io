@@ -86,7 +86,7 @@ Let's briefly look at the code.
 
 **__initNative()_**
 
-``` c++
+``` c
 // Init mpg123 decoder
 mpg123_init();
 // Get mpg123 decoder handle. If hnd is not NULL, everything is OK
@@ -106,7 +106,7 @@ method_onNewFormatCallback = (*env)->GetMethodID(env, thisClass,
 
 **__decodeNative()_**
 
-``` shell
+``` c
 size_t bytes_decoded;
 // Main method to decode provided data. It returns status of operation 
 // and bytes actually decoded in bytes_decoded if any
