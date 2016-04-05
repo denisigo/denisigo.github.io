@@ -18,7 +18,7 @@ So, to stop such an useless usage of resources, we should tell scheduler to limi
 {% highlight yaml %}
 automatic_scaling:
    max_idle_instances: 1
-{% highlight %}
+{% endhighlight %}
 
 # Using Google Edge Cache
 
@@ -33,7 +33,7 @@ So, we just allowed caching for 24 hours. If you're using python Webapp framewor
 {% highlight yaml %}
 self.response.cache_control = 'public'
 self.response.cache_control.max_age = 8600
-{% highlight %}
+{% endhighlight %}
 
 At the time it seems like Google doesn't charge for using this cache. But it also does not provide any cache management tools - so be careful with it - once cached, it can not be invalidated until expired.
 
@@ -41,4 +41,6 @@ At the time it seems like Google doesn't charge for using this cache. But it als
 
 If you use taskqueue for executing some user request-initiated job (for example, update post views counter etc), and set task to run immediately, you might find that GAE starts a new instance for handling that task  - it happens because if your latency settings are tough enough, GAE won't wait until your main request completed and starts a new instance. Since that please pay attention to one useful argument of Task constructor - "countdown". It allows you to postpone execution of your queued task to ensure your main request completed. Setting this to a couple of seconds would likely execute your task on the same instance without starting a new one. So here is the example:
 
-{% highlight yaml %}taskqueue.add(url='/_do_something', countdown=5){% highlight js %}
+{% highlight yaml %}
+taskqueue.add(url='/_do_something', countdown=5)
+{% endhighlight %}
