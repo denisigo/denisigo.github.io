@@ -147,7 +147,8 @@ mInputStream = new BufferedInputStream(mConnection.getInputStream(), IN_BUFFER_S
 while (!mIsInterrupted){
     // Read data from mInputStream to inBuffer
     bytesRead = mInputStream.read(inBuffer, 0, IN_BUFFER_SIZE);
-    // Although Java docs say that number provided by available() method is not accurate, let's just use it for    estimate amount of data available for reading
+    // Although Java docs say that number provided by available() method is not accurate, let's just use it for    
+    // estimate amount of data available for reading
     bytesCached = mInputStream.available();
 
     // We can get less bytes than we actually want, handle all the cases
