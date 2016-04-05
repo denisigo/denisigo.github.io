@@ -3,19 +3,19 @@ layout: page
 title: About
 ---
 
-Hi, I'm a software developer. In the course of my career I have worked in various fields of software development and have got a large and diverse experience. Ultimately I’ve got a genuine passion for mobile development and especially [Android](http://www.denisigo.com/category/android/), and since that I’m doing my best to improve my skills and knowledge of the platform.
+Hi, I'm a software developer. In the course of my career I have worked in various fields of software development and have got a large and diverse experience. Ultimately I’ve got a genuine passion for mobile development and especially Android, and since that I’m doing my best to improve my skills and knowledge of the platform.
 
 # Experience
 
-*   [Android](http://www.denisigo.com/category/android/)
-*   [Google Cloud Platform](http://www.denisigo.com/category/google-cloud-platform/)
-    *   [Google App Engine](http://www.denisigo.com/tag/google-app-engine/)
-    *   [Google Compute Engine](http://www.denisigo.com/tag/google-compute-engine/)
+*   Android
+*   Google Cloud Platform
+    *   Google App Engine
+    *   Google Compute Engine
     *   Google Cloud Storage
-    *   [Google Cloud SQL](http://www.denisigo.com/tag/google-cloud-sql/)
+    *   Google Cloud SQL
 *   Python
-*   [PHP](http://www.denisigo.com/category/php/)
-    *   [Laravel Framework](http://www.denisigo.com/tag/laravel/)
+*   PHP
+    *   Laravel Framework
     *   Kohana Framework
     *   Zend Framework
 *   JavaScript
@@ -24,9 +24,9 @@ Hi, I'm a software developer. In the course of my career I have worked in variou
 *   C++
 *   MySQL
 *   Products
-    *   [Sphinx search](http://www.denisigo.com/tag/sphinx-search/)
-    *   [Nginx](http://www.denisigo.com/tag/nginx/)
-*   [APIs](http://www.denisigo.com/category/apis/)
+    *   Sphinx search
+    *   Nginx
+*   APIs
     *   Facebook API
     *   Twitter API
     *   Tumblr API
@@ -45,14 +45,7 @@ Hi, I'm a software developer. In the course of my career I have worked in variou
 *   [Google Play](https://play.google.com/store/apps/developer?id=Denisigo)
 *   [email](mailto:denis@sigov.ru)
 
-# Portfolio
-
-*   [Smuge.com](http://www.smuge.com) [suspended] - search engine for people. Built on Google Cloud Platform
-*   [Multiplication Trainer](https://play.google.com/store/apps/details?id=com.denisigo.multitrainer) - Android application to check and improve knowledge of multiplication table
-*   [Dating Ice Breaker](https://play.google.com/store/apps/details?id=uk.co.editoptimisation.datingapp) - Android application, backend API on Google Cloud Platform
-*   [Rumbur](http://www.rumbur.ru) - Russian discovery & travel online magazine. Built on Google Cloud Platform.
-
-# Learn as if you were to live forever...*
+# <nobr>Learn as if you were to live forever...*</nobr>
 
 *   Coursera: [Programming Mobile Applications for Android Handheld Systems](https://www.coursera.org/course/android) - [with distinction](https://www.coursera.org/records/5sdaC5J8K5wLJ2dg).
 *   Coursera: [Pattern-Oriented Software Architectures: Programming Mobile Services for Android Handheld Systems](https://www.coursera.org/course/posa) - [with distinction](https://www.coursera.org/records/7h7Zpny3wkGAFLwd).
