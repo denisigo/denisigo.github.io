@@ -166,7 +166,9 @@ field_weights=(name=5000, alias=5000, description=1000, cat_1=1000,cat_2=500,cat
 This is the SELECT statement - main command telling SE to perform a search. SELECT statement consists of several clauses which we’ll describe below. Full syntax of SELECT can be found [here](http://sphinxsearch.com/docs/current.html#sphinxql-select). Note: SphinxQL also contains a lot of other statements to manage SE and indexes and do other stuff. 
 
 **SELECT** 
-SELECT is the clause describing which fields of document to return. Please notice two strange fields - weight() and (weight() + fame*0.09) with alias name “wgt” for convenience. Weight() is exactly the weight calculated by ranker. Wgt is so called “final weight” which is calculated from ranker’s weight() and fame of the Subject. I’ve not used fame right in ranker formula to divide “how good document matches query” and “how fame is affecting weight” things. **_Important_**: Don’t ask me why “weight() + fame*0.09” looks like this =). I’ve spent some time to adjust this and ranker formulas to make search returns relatively good results. It still needs a lot of researching and tuning. But I’ll try to explain my thoughts about how I’ve got these formulas later. 
+SELECT is the clause describing which fields of document to return. Please notice two strange fields - weight() and (weight() + fame*0.09) with alias name “wgt” for convenience. Weight() is exactly the weight calculated by ranker. Wgt is so called “final weight” which is calculated from ranker’s weight() and fame of the Subject. I’ve not used fame right in ranker formula to divide “how good document matches query” and “how fame is affecting weight” things. 
+
+**_Important_**: Don’t ask me why “weight() + fame*0.09” looks like this =). I’ve spent some time to adjust this and ranker formulas to make search returns relatively good results. It still needs a lot of researching and tuning. But I’ll try to explain my thoughts about how I’ve got these formulas later. 
 
 **FROM** 
 FROM clause just describes which index use to search. 
