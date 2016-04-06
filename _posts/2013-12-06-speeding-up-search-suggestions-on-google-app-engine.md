@@ -4,8 +4,9 @@ title: Speeding up search suggestions on Google App Engine
 category: Google Cloud Platform
 tags: [Google App Engine, Google Compute Engine, Sphinx Search]
 ---
-While developing [Smuge](http://www.smuge.com) on Google App Engine I faced one issue - search suggestions were too slow - delay from key pressing and displaying new results were up to few seconds(o_O). In this post I'll explain what I've made to speed them up to dozens of ms. 
 [![speeding-up-search-suggestions-on-google-app-engine](http://lh3.ggpht.com/39USHo9uGCxM-ZvGji_gBvL2cwKmVI8UuPfrAavUOrSxK7mV9EPfEVgw7xnSNJW4j-lOKF2_CXkgBG77-JMflRHk=s700)](http://denisigosite.appspot.com.storage.googleapis.com/speeding-up-search-suggestions-on-google-app-engine.jpg) 
+
+While developing [Smuge](http://www.smuge.com) on Google App Engine I faced one issue - search suggestions were too slow - delay from key pressing and displaying new results were up to few seconds(o_O). In this post I'll explain what I've made to speed them up to dozens of ms. 
 <!--more-->
 # Task
 
