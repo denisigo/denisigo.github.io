@@ -7,6 +7,8 @@ tags: [Bluetooth, Python]
 
 Hi, today I'll show you how to establish Bluetooth communication channel between Android application and Linux desktop using SPP (Serial Port Profile) and virtual serial port. I'm not sure about usefulness of this thing, but I needed it once. As always, I'll include snippets of the code, but full source can be found on [GitHub repo](https://github.com/denisigo/android-linux-bluetooth).
 
+<!--more-->
+
 # Intro to Bluetooth
 
 Bluetooth uses several low-level [protocols](http://en.wikipedia.org/wiki/List_of_Bluetooth_protocols) combined into high-level [profiles](http://en.wikipedia.org/wiki/List_of_Bluetooth_profiles). So we will use [SPP](http://en.wikipedia.org/wiki/List_of_Bluetooth_profiles#Serial_Port_Profile_.28SPP.29) profile which stands for Serial Port Profile which uses [RFCOMM](http://en.wikipedia.org/wiki/List_of_Bluetooth_protocols#Radio_frequency_communication_.28RFCOMM.29) protocol which stands for Radio frequency communication. 
