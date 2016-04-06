@@ -47,7 +47,7 @@ I used one trick to cut delay even more - from dozens of ms to almost nothing. I
 
 These probable continuation letters were get by scanning about of 100K people names and bio texts of Smuge database. I just went through the texts and calculated which two-letter sequences are most frequent. Here is the array I use:
 
-``` json
+```
 tokens = {'a': [u'n', u'r', u'l', u'm', u't'],
           'c': [u'h', u'o', u'a', u'k', u'e'],
           'b': [u'e', u'r', u'a', u'o', u'i'],
