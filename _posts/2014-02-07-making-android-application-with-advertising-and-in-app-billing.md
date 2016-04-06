@@ -224,13 +224,13 @@ updateInterface();
 
 As you might already noticed, in the **onCreate** method we've got RelativeLayout instance for our ad banner:
 
-```
+``` java
 mAdLayout = (RelativeLayout) findViewById(R.id.adplacement);
 ```
 
 Now, let's look at **displayAd** method which is being invoked from **updateInterface** method:
 
-```
+``` java
 private void displayAd(boolean state) {
 
 	if (state) {
