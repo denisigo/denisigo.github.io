@@ -187,7 +187,7 @@ Please note {query} things - they are just replaced with actual search term insi
 (@!name music) | (@name music*)
 ```
 
-So, it contains two parts in parentheses divided by “|” - boolean operator “OR”, which means that document will be considered as matched if whether first or second part matches. 
+So, it contains two parts in parentheses divided by “\|” - boolean operator “OR”, which means that document will be considered as matched if whether first or second part matches. 
 
 Note “@name” things - they define field to which perform matching. If no field defined it supposed that all fulltext fields will be matched. “@!” thing defines that all fulltext fields should be matched except defined. So, this part tells SE that it should check all fields except “name” to match “music” string exactly. 
 
@@ -198,7 +198,9 @@ So, this query string will match queries like “g”, “ga”, “gag”, “g
 I’ve made such query string because if use just “{query}*” as query string, when searching for “gaga” letter by letter, instead of obvious result “Lady Gaga” there may appear some results which have some irrelevant words strarting with “g”, “ga” etc in the description but have high fame. Such behaviour is possible because we’re sorting by “wgt” field, which makes famous subjects rank higher even if they have lower weight(). 
 
 **ORDER BY** 
-ORDER BY defines sorting field and mode - ASC for ascending and DESC for descending. ORDER BY wgt DESC tells SE to sort results by wgt field (defined in the SELECT clause) in descending order. **LIMIT** LIMIT defines amount of results to return. 
+ORDER BY defines sorting field and mode - ASC for ascending and DESC for descending. ORDER BY wgt DESC tells SE to sort results by wgt field (defined in the SELECT clause) in descending order. 
+
+**LIMIT** LIMIT defines amount of results to return. 
 
 **OPTION** 
 OPTION clause is the another important one. It is used to define various settings needed for the query. Settings is written as key=value pairs separated with commas. We use two settings - **ranker** and **field_weights**: 
