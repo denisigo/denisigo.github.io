@@ -19,13 +19,15 @@ Just to note - your device has three axes which are used in measurements and cal
 
 So, Azimuth is the angle of rotation about device's Z axis or angle between device's Y axis and Geomagnetic North Pole. If Azimuth is zero, you're heading right to the Geomagnetic North. If Azimuth is 90 you're heading East, 180 - South, 270 - West.
 
-![](https://docs.google.com/drawings/d/1girKecjecIb5kfJ50WVRYCKGIXM8ApaHyvgwHqPoxOI/pub?w=328&amp;h=406)
+![](https://docs.google.com/drawings/d/1girKecjecIb5kfJ50WVRYCKGIXM8ApaHyvgwHqPoxOI/pub?w=726)
 
 [Acceleration Sensor](https://developer.android.com/reference/android/hardware/Sensor.html#TYPE_ACCELEROMETER) shows acceleration applied to the device among that three axes, including Earth gravity force. When for example your device is lying horizontally on the table, only gravity force is applied to it, and consequently, values would be X=0, Y=0, Z=9.8. Acceleration Sensor is used to determine device's orientation relative to Earth surface.
 
 [Magnetic Field Sensor](https://developer.android.com/reference/android/hardware/Sensor.html#TYPE_MAGNETIC_FIELD) shows the strength of Earth Magnetic Field applied to these three axes, in microteslas. If your device is rotated directly to the Geomagnetic North Pole, Y axis would show max value, X would show zero, and Z would show some value (very very roughly). Exact values may vary significantly depending on your location, so I'll show example with values from 0 to 1, where 1 represents max field strength. So, Magnetic Field Sensor is used to determine device's orientation relative to Geomagnetic North Pole.
 
 ![](https://docs.google.com/drawings/d/1cRE1InXjeXWksW3jOUWQ4hWxfFhLQWAu6Qm77S0ri7w/pub?w=726&amp;h=490)
+
+Where MF stands for Magnetic Field Strength.
 
 Together these two sensors are used to get Azimuth regardless of device orientation relative to the Earth surface.
 
@@ -36,9 +38,9 @@ As you can see, there is a relation between device rotation around Y axis and Ma
 ```
 X = sin(rotation_in_radians) * -1 * BS;
 Y = cos(rotation_in_radians) * BS;
+```
 
 Where BS is the Base Strength and could be any arbitrary value, similar to real Earth Magnetic Field strength (say 25 microteslas). It is needed since we don't measure real Magnetic Field but just want to mimic real sensor.
-```
 
 As I said, I have a GPS data which contains heading angle. GPS heading is the angle between your moving/driving direction and North provided by GPS receiver in NMEA messages. Where heading of 0 degress means you are heading right to the North, 90 to the East and so on. Exactly what I need!
 
